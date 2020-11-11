@@ -16,6 +16,16 @@ class Account {
     'activeOrRestrictedActive'?: boolean;
 
         /**
+        * The ID of the user who created this entity.
+        */
+    'createdBy'?: number;
+
+        /**
+        * The date and time when this entity was created.
+        */
+    'createdOn'?: Date;
+
+        /**
         * The ID of a user that deleted this entity.
         */
     'deletedBy'?: number;
@@ -95,6 +105,18 @@ class Account {
         "name": "activeOrRestrictedActive",
         "baseName": "activeOrRestrictedActive",
         "type": "boolean"
+        },
+        
+        {
+        "name": "createdBy",
+        "baseName": "createdBy",
+        "type": "number"
+        },
+        
+        {
+        "name": "createdOn",
+        "baseName": "createdOn",
+        "type": "Date"
         },
         
         {

@@ -23,6 +23,16 @@ class Space {
     'activeOrRestrictedActive'?: boolean;
 
         /**
+        * The ID of the user who created this entity.
+        */
+    'createdBy'?: number;
+
+        /**
+        * The date and time when this entity was created.
+        */
+    'createdOn'?: Date;
+
+        /**
         * The database in which the space's data are stored in.
         */
     'database'?: TenantDatabase;
@@ -118,6 +128,18 @@ class Space {
         "name": "activeOrRestrictedActive",
         "baseName": "activeOrRestrictedActive",
         "type": "boolean"
+        },
+        
+        {
+        "name": "createdBy",
+        "baseName": "createdBy",
+        "type": "number"
+        },
+        
+        {
+        "name": "createdOn",
+        "baseName": "createdOn",
+        "type": "Date"
         },
         
         {

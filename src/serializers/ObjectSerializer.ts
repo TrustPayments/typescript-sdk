@@ -133,6 +133,11 @@ import { Role } from "../models/Role";
 import { SalesChannel } from "../models/SalesChannel";
 import { Scope } from "../models/Scope";
 import { ServerError } from "../models/ServerError";
+import { ShopifyAdditionalLineItemData } from "../models/ShopifyAdditionalLineItemData";
+import { ShopifyIntegration } from "../models/ShopifyIntegration";
+import { ShopifyIntegrationPaymentAppVersion } from "../models/ShopifyIntegrationPaymentAppVersion";
+import { ShopifyIntegrationSubscriptionAppVersion } from "../models/ShopifyIntegrationSubscriptionAppVersion";
+import { ShopifyTransactionState } from "../models/ShopifyTransactionState";
 import { Space } from "../models/Space";
 import { SpaceAddress } from "../models/SpaceAddress";
 import { SpaceAddressCreate } from "../models/SpaceAddressCreate";
@@ -149,6 +154,7 @@ import { TokenizationMode } from "../models/TokenizationMode";
 import { Transaction } from "../models/Transaction";
 import { TransactionAwareEntity } from "../models/TransactionAwareEntity";
 import { TransactionComment } from "../models/TransactionComment";
+import { TransactionCompletionBehavior } from "../models/TransactionCompletionBehavior";
 import { TransactionCompletionMode } from "../models/TransactionCompletionMode";
 import { TransactionCompletionRequest } from "../models/TransactionCompletionRequest";
 import { TransactionCompletionState } from "../models/TransactionCompletionState";
@@ -198,6 +204,7 @@ import { PaymentLinkCreate } from "../models/PaymentLinkCreate";
 import { PaymentTerminalContactAddress } from "../models/PaymentTerminalContactAddress";
 import { RefundCommentActive } from "../models/RefundCommentActive";
 import { RefundCommentCreate } from "../models/RefundCommentCreate";
+import { ShopifyTransaction } from "../models/ShopifyTransaction";
 import { SpaceCreate } from "../models/SpaceCreate";
 import { SpaceUpdate } from "../models/SpaceUpdate";
 import { TokenCreate } from "../models/TokenCreate";
@@ -270,8 +277,13 @@ class ObjectSerializer {
         "RefundType": RefundType,
         "ResourceState": ResourceState,
         "RestAddressFormatField": RestAddressFormatField,
+        "ShopifyAdditionalLineItemData": ShopifyAdditionalLineItemData,
+        "ShopifyIntegrationPaymentAppVersion": ShopifyIntegrationPaymentAppVersion,
+        "ShopifyIntegrationSubscriptionAppVersion": ShopifyIntegrationSubscriptionAppVersion,
+        "ShopifyTransactionState": ShopifyTransactionState,
         "TokenVersionState": TokenVersionState,
         "TokenizationMode": TokenizationMode,
+        "TransactionCompletionBehavior": TransactionCompletionBehavior,
         "TransactionCompletionMode": TransactionCompletionMode,
         "TransactionCompletionState": TransactionCompletionState,
         "TransactionEnvironmentSelectionStrategy": TransactionEnvironmentSelectionStrategy,
@@ -382,6 +394,7 @@ class ObjectSerializer {
                 "SalesChannel": SalesChannel,
                 "Scope": Scope,
                 "ServerError": ServerError,
+                "ShopifyIntegration": ShopifyIntegration,
                 "Space": Space,
                 "SpaceAddress": SpaceAddress,
                 "SpaceAddressCreate": SpaceAddressCreate,
@@ -435,6 +448,7 @@ class ObjectSerializer {
                 "PaymentTerminalContactAddress": PaymentTerminalContactAddress,
                 "RefundCommentActive": RefundCommentActive,
                 "RefundCommentCreate": RefundCommentCreate,
+                "ShopifyTransaction": ShopifyTransaction,
                 "SpaceCreate": SpaceCreate,
                 "SpaceUpdate": SpaceUpdate,
                 "TokenCreate": TokenCreate,
