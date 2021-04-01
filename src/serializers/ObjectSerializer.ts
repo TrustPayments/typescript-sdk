@@ -19,6 +19,14 @@ import { AccountState } from "../models/AccountState";
 import { AccountType } from "../models/AccountType";
 import { Address } from "../models/Address";
 import { AddressCreate } from "../models/AddressCreate";
+import { AuthenticatedCardDataCreate } from "../models/AuthenticatedCardDataCreate";
+import { CardAuthenticationResponse } from "../models/CardAuthenticationResponse";
+import { CardAuthenticationVersion } from "../models/CardAuthenticationVersion";
+import { CardCryptogram } from "../models/CardCryptogram";
+import { CardCryptogramCreate } from "../models/CardCryptogramCreate";
+import { CardCryptogramType } from "../models/CardCryptogramType";
+import { CardholderAuthentication } from "../models/CardholderAuthentication";
+import { CardholderAuthenticationCreate } from "../models/CardholderAuthenticationCreate";
 import { ChargeAttemptEnvironment } from "../models/ChargeAttemptEnvironment";
 import { ChargeAttemptState } from "../models/ChargeAttemptState";
 import { ChargeFlow } from "../models/ChargeFlow";
@@ -93,6 +101,7 @@ import { PaymentContractType } from "../models/PaymentContractType";
 import { PaymentInformationHash } from "../models/PaymentInformationHash";
 import { PaymentInformationHashType } from "../models/PaymentInformationHashType";
 import { PaymentLink } from "../models/PaymentLink";
+import { PaymentLinkAddressHandlingMode } from "../models/PaymentLinkAddressHandlingMode";
 import { PaymentLinkProtectionMode } from "../models/PaymentLinkProtectionMode";
 import { PaymentLinkUpdate } from "../models/PaymentLinkUpdate";
 import { PaymentMethod } from "../models/PaymentMethod";
@@ -111,9 +120,11 @@ import { PaymentTerminalLocation } from "../models/PaymentTerminalLocation";
 import { PaymentTerminalLocationState } from "../models/PaymentTerminalLocationState";
 import { PaymentTerminalLocationVersion } from "../models/PaymentTerminalLocationVersion";
 import { PaymentTerminalLocationVersionState } from "../models/PaymentTerminalLocationVersionState";
+import { PaymentTerminalReceiptType } from "../models/PaymentTerminalReceiptType";
 import { PaymentTerminalState } from "../models/PaymentTerminalState";
 import { PaymentTerminalType } from "../models/PaymentTerminalType";
 import { Permission } from "../models/Permission";
+import { RecurringIndicator } from "../models/RecurringIndicator";
 import { Refund } from "../models/Refund";
 import { RefundComment } from "../models/RefundComment";
 import { RefundCreate } from "../models/RefundCreate";
@@ -146,11 +157,15 @@ import { StaticValue } from "../models/StaticValue";
 import { Tax } from "../models/Tax";
 import { TaxCreate } from "../models/TaxCreate";
 import { TenantDatabase } from "../models/TenantDatabase";
+import { TerminalReceiptFetchRequest } from "../models/TerminalReceiptFetchRequest";
+import { TerminalReceiptFormat } from "../models/TerminalReceiptFormat";
 import { Token } from "../models/Token";
 import { TokenVersion } from "../models/TokenVersion";
 import { TokenVersionState } from "../models/TokenVersionState";
 import { TokenVersionType } from "../models/TokenVersionType";
 import { TokenizationMode } from "../models/TokenizationMode";
+import { TokenizedCardData } from "../models/TokenizedCardData";
+import { TokenizedCardDataCreate } from "../models/TokenizedCardDataCreate";
 import { Transaction } from "../models/Transaction";
 import { TransactionAwareEntity } from "../models/TransactionAwareEntity";
 import { TransactionComment } from "../models/TransactionComment";
@@ -170,8 +185,6 @@ import { TransactionUserInterfaceType } from "../models/TransactionUserInterface
 import { TransactionVoidMode } from "../models/TransactionVoidMode";
 import { TransactionVoidState } from "../models/TransactionVoidState";
 import { TwoFactorAuthenticationType } from "../models/TwoFactorAuthenticationType";
-import { UnencryptedCardData } from "../models/UnencryptedCardData";
-import { UnencryptedCardDataCreate } from "../models/UnencryptedCardDataCreate";
 import { User } from "../models/User";
 import { UserAccountRole } from "../models/UserAccountRole";
 import { UserSpaceRole } from "../models/UserSpaceRole";
@@ -185,6 +198,7 @@ import { AccountUpdate } from "../models/AccountUpdate";
 import { ApplicationUser } from "../models/ApplicationUser";
 import { ApplicationUserCreate } from "../models/ApplicationUserCreate";
 import { ApplicationUserUpdate } from "../models/ApplicationUserUpdate";
+import { AuthenticatedCardData } from "../models/AuthenticatedCardData";
 import { Charge } from "../models/Charge";
 import { ChargeAttempt } from "../models/ChargeAttempt";
 import { ChargeFlowLevel } from "../models/ChargeFlowLevel";
@@ -201,7 +215,6 @@ import { HumanUserCreate } from "../models/HumanUserCreate";
 import { HumanUserUpdate } from "../models/HumanUserUpdate";
 import { PaymentLinkActive } from "../models/PaymentLinkActive";
 import { PaymentLinkCreate } from "../models/PaymentLinkCreate";
-import { PaymentTerminalContactAddress } from "../models/PaymentTerminalContactAddress";
 import { RefundCommentActive } from "../models/RefundCommentActive";
 import { RefundCommentCreate } from "../models/RefundCommentCreate";
 import { ShopifyTransaction } from "../models/ShopifyTransaction";
@@ -242,6 +255,9 @@ class ObjectSerializer {
     static enumsMap: {[index: string]: any} = {
         "AccountState": AccountState,
         "AccountType": AccountType,
+        "CardAuthenticationResponse": CardAuthenticationResponse,
+        "CardAuthenticationVersion": CardAuthenticationVersion,
+        "CardCryptogramType": CardCryptogramType,
         "ChargeAttemptEnvironment": ChargeAttemptEnvironment,
         "ChargeAttemptState": ChargeAttemptState,
         "ChargeFlowLevelState": ChargeFlowLevelState,
@@ -266,6 +282,7 @@ class ObjectSerializer {
         "ManualTaskState": ManualTaskState,
         "OneClickPaymentMode": OneClickPaymentMode,
         "PaymentContractState": PaymentContractState,
+        "PaymentLinkAddressHandlingMode": PaymentLinkAddressHandlingMode,
         "PaymentLinkProtectionMode": PaymentLinkProtectionMode,
         "PaymentPrimaryRiskTaker": PaymentPrimaryRiskTaker,
         "PaymentTerminalConfigurationState": PaymentTerminalConfigurationState,
@@ -273,6 +290,7 @@ class ObjectSerializer {
         "PaymentTerminalLocationState": PaymentTerminalLocationState,
         "PaymentTerminalLocationVersionState": PaymentTerminalLocationVersionState,
         "PaymentTerminalState": PaymentTerminalState,
+        "RecurringIndicator": RecurringIndicator,
         "RefundState": RefundState,
         "RefundType": RefundType,
         "ResourceState": ResourceState,
@@ -281,6 +299,7 @@ class ObjectSerializer {
         "ShopifyIntegrationPaymentAppVersion": ShopifyIntegrationPaymentAppVersion,
         "ShopifyIntegrationSubscriptionAppVersion": ShopifyIntegrationSubscriptionAppVersion,
         "ShopifyTransactionState": ShopifyTransactionState,
+        "TerminalReceiptFormat": TerminalReceiptFormat,
         "TokenVersionState": TokenVersionState,
         "TokenizationMode": TokenizationMode,
         "TransactionCompletionBehavior": TransactionCompletionBehavior,
@@ -315,6 +334,11 @@ class ObjectSerializer {
                 "Account": Account,
                 "Address": Address,
                 "AddressCreate": AddressCreate,
+                "AuthenticatedCardDataCreate": AuthenticatedCardDataCreate,
+                "CardCryptogram": CardCryptogram,
+                "CardCryptogramCreate": CardCryptogramCreate,
+                "CardholderAuthentication": CardholderAuthentication,
+                "CardholderAuthenticationCreate": CardholderAuthenticationCreate,
                 "ChargeFlow": ChargeFlow,
                 "ChargeFlowLevelConfiguration": ChargeFlowLevelConfiguration,
                 "ChargeFlowLevelConfigurationType": ChargeFlowLevelConfigurationType,
@@ -377,6 +401,7 @@ class ObjectSerializer {
                 "PaymentTerminalConfigurationVersion": PaymentTerminalConfigurationVersion,
                 "PaymentTerminalLocation": PaymentTerminalLocation,
                 "PaymentTerminalLocationVersion": PaymentTerminalLocationVersion,
+                "PaymentTerminalReceiptType": PaymentTerminalReceiptType,
                 "PaymentTerminalType": PaymentTerminalType,
                 "Permission": Permission,
                 "Refund": Refund,
@@ -403,9 +428,12 @@ class ObjectSerializer {
                 "Tax": Tax,
                 "TaxCreate": TaxCreate,
                 "TenantDatabase": TenantDatabase,
+                "TerminalReceiptFetchRequest": TerminalReceiptFetchRequest,
                 "Token": Token,
                 "TokenVersion": TokenVersion,
                 "TokenVersionType": TokenVersionType,
+                "TokenizedCardData": TokenizedCardData,
+                "TokenizedCardDataCreate": TokenizedCardDataCreate,
                 "Transaction": Transaction,
                 "TransactionAwareEntity": TransactionAwareEntity,
                 "TransactionComment": TransactionComment,
@@ -415,8 +443,6 @@ class ObjectSerializer {
                 "TransactionInvoiceReplacement": TransactionInvoiceReplacement,
                 "TransactionLineItemUpdateRequest": TransactionLineItemUpdateRequest,
                 "TwoFactorAuthenticationType": TwoFactorAuthenticationType,
-                "UnencryptedCardData": UnencryptedCardData,
-                "UnencryptedCardDataCreate": UnencryptedCardDataCreate,
                 "User": User,
                 "UserAccountRole": UserAccountRole,
                 "UserSpaceRole": UserSpaceRole,
@@ -429,6 +455,7 @@ class ObjectSerializer {
                 "ApplicationUser": ApplicationUser,
                 "ApplicationUserCreate": ApplicationUserCreate,
                 "ApplicationUserUpdate": ApplicationUserUpdate,
+                "AuthenticatedCardData": AuthenticatedCardData,
                 "Charge": Charge,
                 "ChargeAttempt": ChargeAttempt,
                 "ChargeFlowLevel": ChargeFlowLevel,
@@ -445,7 +472,6 @@ class ObjectSerializer {
                 "HumanUserUpdate": HumanUserUpdate,
                 "PaymentLinkActive": PaymentLinkActive,
                 "PaymentLinkCreate": PaymentLinkCreate,
-                "PaymentTerminalContactAddress": PaymentTerminalContactAddress,
                 "RefundCommentActive": RefundCommentActive,
                 "RefundCommentCreate": RefundCommentCreate,
                 "ShopifyTransaction": ShopifyTransaction,
