@@ -8,6 +8,10 @@ import { AbstractHumanUserUpdate } from "../models/AbstractHumanUserUpdate";
 import { AbstractPaymentLinkUpdate } from "../models/AbstractPaymentLinkUpdate";
 import { AbstractRefundCommentActive } from "../models/AbstractRefundCommentActive";
 import { AbstractSpaceUpdate } from "../models/AbstractSpaceUpdate";
+import { AbstractSubscriberUpdate } from "../models/AbstractSubscriberUpdate";
+import { AbstractSubscriptionAffiliateUpdate } from "../models/AbstractSubscriptionAffiliateUpdate";
+import { AbstractSubscriptionMetricUpdate } from "../models/AbstractSubscriptionMetricUpdate";
+import { AbstractSubscriptionProductActive } from "../models/AbstractSubscriptionProductActive";
 import { AbstractTokenUpdate } from "../models/AbstractTokenUpdate";
 import { AbstractTransactionCommentActive } from "../models/AbstractTransactionCommentActive";
 import { AbstractTransactionInvoiceCommentActive } from "../models/AbstractTransactionInvoiceCommentActive";
@@ -53,7 +57,9 @@ import { CustomerPostalAddressCreate } from "../models/CustomerPostalAddressCrea
 import { CustomersPresence } from "../models/CustomersPresence";
 import { DataCollectionType } from "../models/DataCollectionType";
 import { DatabaseTranslatedString } from "../models/DatabaseTranslatedString";
+import { DatabaseTranslatedStringCreate } from "../models/DatabaseTranslatedStringCreate";
 import { DatabaseTranslatedStringItem } from "../models/DatabaseTranslatedStringItem";
+import { DatabaseTranslatedStringItemCreate } from "../models/DatabaseTranslatedStringItemCreate";
 import { DeliveryIndicationDecisionReason } from "../models/DeliveryIndicationDecisionReason";
 import { DeliveryIndicationState } from "../models/DeliveryIndicationState";
 import { DocumentTemplate } from "../models/DocumentTemplate";
@@ -124,6 +130,18 @@ import { PaymentTerminalReceiptType } from "../models/PaymentTerminalReceiptType
 import { PaymentTerminalState } from "../models/PaymentTerminalState";
 import { PaymentTerminalType } from "../models/PaymentTerminalType";
 import { Permission } from "../models/Permission";
+import { PersistableCurrencyAmount } from "../models/PersistableCurrencyAmount";
+import { PersistableCurrencyAmountUpdate } from "../models/PersistableCurrencyAmountUpdate";
+import { ProductFeeType } from "../models/ProductFeeType";
+import { ProductMeteredFee } from "../models/ProductMeteredFee";
+import { ProductMeteredFeeUpdate } from "../models/ProductMeteredFeeUpdate";
+import { ProductMeteredTierFee } from "../models/ProductMeteredTierFee";
+import { ProductMeteredTierFeeUpdate } from "../models/ProductMeteredTierFeeUpdate";
+import { ProductMeteredTierPricing } from "../models/ProductMeteredTierPricing";
+import { ProductPeriodFee } from "../models/ProductPeriodFee";
+import { ProductPeriodFeeUpdate } from "../models/ProductPeriodFeeUpdate";
+import { ProductSetupFee } from "../models/ProductSetupFee";
+import { ProductSetupFeeUpdate } from "../models/ProductSetupFeeUpdate";
 import { RecurringIndicator } from "../models/RecurringIndicator";
 import { Refund } from "../models/Refund";
 import { RefundComment } from "../models/RefundComment";
@@ -141,6 +159,7 @@ import { RestCountryState } from "../models/RestCountryState";
 import { RestCurrency } from "../models/RestCurrency";
 import { RestLanguage } from "../models/RestLanguage";
 import { Role } from "../models/Role";
+import { RoleState } from "../models/RoleState";
 import { SalesChannel } from "../models/SalesChannel";
 import { Scope } from "../models/Scope";
 import { ServerError } from "../models/ServerError";
@@ -154,7 +173,58 @@ import { SpaceAddress } from "../models/SpaceAddress";
 import { SpaceAddressCreate } from "../models/SpaceAddressCreate";
 import { SpaceView } from "../models/SpaceView";
 import { StaticValue } from "../models/StaticValue";
+import { Subscriber } from "../models/Subscriber";
+import { SubscriberUpdate } from "../models/SubscriberUpdate";
+import { Subscription } from "../models/Subscription";
+import { SubscriptionAffiliate } from "../models/SubscriptionAffiliate";
+import { SubscriptionAffiliateUpdate } from "../models/SubscriptionAffiliateUpdate";
+import { SubscriptionChangeRequest } from "../models/SubscriptionChangeRequest";
+import { SubscriptionCharge } from "../models/SubscriptionCharge";
+import { SubscriptionChargeCreate } from "../models/SubscriptionChargeCreate";
+import { SubscriptionChargeProcessingType } from "../models/SubscriptionChargeProcessingType";
+import { SubscriptionChargeState } from "../models/SubscriptionChargeState";
+import { SubscriptionChargeType } from "../models/SubscriptionChargeType";
+import { SubscriptionComponentConfiguration } from "../models/SubscriptionComponentConfiguration";
+import { SubscriptionComponentReferenceConfiguration } from "../models/SubscriptionComponentReferenceConfiguration";
+import { SubscriptionCreateRequest } from "../models/SubscriptionCreateRequest";
+import { SubscriptionLedgerEntry } from "../models/SubscriptionLedgerEntry";
+import { SubscriptionLedgerEntryCreate } from "../models/SubscriptionLedgerEntryCreate";
+import { SubscriptionLedgerEntryState } from "../models/SubscriptionLedgerEntryState";
+import { SubscriptionMetric } from "../models/SubscriptionMetric";
+import { SubscriptionMetricType } from "../models/SubscriptionMetricType";
+import { SubscriptionMetricUpdate } from "../models/SubscriptionMetricUpdate";
+import { SubscriptionMetricUsageReport } from "../models/SubscriptionMetricUsageReport";
+import { SubscriptionMetricUsageReportCreate } from "../models/SubscriptionMetricUsageReportCreate";
+import { SubscriptionPeriodBill } from "../models/SubscriptionPeriodBill";
+import { SubscriptionPeriodBillState } from "../models/SubscriptionPeriodBillState";
+import { SubscriptionProduct } from "../models/SubscriptionProduct";
+import { SubscriptionProductComponent } from "../models/SubscriptionProductComponent";
+import { SubscriptionProductComponentGroup } from "../models/SubscriptionProductComponentGroup";
+import { SubscriptionProductComponentGroupUpdate } from "../models/SubscriptionProductComponentGroupUpdate";
+import { SubscriptionProductComponentReference } from "../models/SubscriptionProductComponentReference";
+import { SubscriptionProductComponentReferenceState } from "../models/SubscriptionProductComponentReferenceState";
+import { SubscriptionProductComponentUpdate } from "../models/SubscriptionProductComponentUpdate";
+import { SubscriptionProductRetirement } from "../models/SubscriptionProductRetirement";
+import { SubscriptionProductRetirementCreate } from "../models/SubscriptionProductRetirementCreate";
+import { SubscriptionProductState } from "../models/SubscriptionProductState";
+import { SubscriptionProductVersion } from "../models/SubscriptionProductVersion";
+import { SubscriptionProductVersionPending } from "../models/SubscriptionProductVersionPending";
+import { SubscriptionProductVersionRetirement } from "../models/SubscriptionProductVersionRetirement";
+import { SubscriptionProductVersionRetirementCreate } from "../models/SubscriptionProductVersionRetirementCreate";
+import { SubscriptionProductVersionState } from "../models/SubscriptionProductVersionState";
+import { SubscriptionState } from "../models/SubscriptionState";
+import { SubscriptionSuspension } from "../models/SubscriptionSuspension";
+import { SubscriptionSuspensionAction } from "../models/SubscriptionSuspensionAction";
+import { SubscriptionSuspensionCreate } from "../models/SubscriptionSuspensionCreate";
+import { SubscriptionSuspensionReason } from "../models/SubscriptionSuspensionReason";
+import { SubscriptionSuspensionState } from "../models/SubscriptionSuspensionState";
+import { SubscriptionUpdate } from "../models/SubscriptionUpdate";
+import { SubscriptionUpdateRequest } from "../models/SubscriptionUpdateRequest";
+import { SubscriptionVersion } from "../models/SubscriptionVersion";
+import { SubscriptionVersionState } from "../models/SubscriptionVersionState";
 import { Tax } from "../models/Tax";
+import { TaxCalculation } from "../models/TaxCalculation";
+import { TaxClass } from "../models/TaxClass";
 import { TaxCreate } from "../models/TaxCreate";
 import { TenantDatabase } from "../models/TenantDatabase";
 import { TerminalReceiptFetchRequest } from "../models/TerminalReceiptFetchRequest";
@@ -220,6 +290,17 @@ import { RefundCommentCreate } from "../models/RefundCommentCreate";
 import { ShopifyTransaction } from "../models/ShopifyTransaction";
 import { SpaceCreate } from "../models/SpaceCreate";
 import { SpaceUpdate } from "../models/SpaceUpdate";
+import { SubscriberActive } from "../models/SubscriberActive";
+import { SubscriberCreate } from "../models/SubscriberCreate";
+import { SubscriptionAffiliateCreate } from "../models/SubscriptionAffiliateCreate";
+import { SubscriptionAffiliateDeleted } from "../models/SubscriptionAffiliateDeleted";
+import { SubscriptionAffiliateInactive } from "../models/SubscriptionAffiliateInactive";
+import { SubscriptionMetricActive } from "../models/SubscriptionMetricActive";
+import { SubscriptionMetricCreate } from "../models/SubscriptionMetricCreate";
+import { SubscriptionPending } from "../models/SubscriptionPending";
+import { SubscriptionProductActive } from "../models/SubscriptionProductActive";
+import { SubscriptionProductCreate } from "../models/SubscriptionProductCreate";
+import { SubscriptionSuspensionRunning } from "../models/SubscriptionSuspensionRunning";
 import { TokenCreate } from "../models/TokenCreate";
 import { TokenUpdate } from "../models/TokenUpdate";
 import { TransactionCommentActive } from "../models/TransactionCommentActive";
@@ -237,6 +318,7 @@ import { WebhookListenerUpdate } from "../models/WebhookListenerUpdate";
 import { WebhookUrlCreate } from "../models/WebhookUrlCreate";
 import { WebhookUrlUpdate } from "../models/WebhookUrlUpdate";
 import { ApplicationUserCreateWithMacKey } from "../models/ApplicationUserCreateWithMacKey";
+import { SubscriptionAffiliateDeleting } from "../models/SubscriptionAffiliateDeleting";
 
 class ObjectSerializer {
 
@@ -290,15 +372,32 @@ class ObjectSerializer {
         "PaymentTerminalLocationState": PaymentTerminalLocationState,
         "PaymentTerminalLocationVersionState": PaymentTerminalLocationVersionState,
         "PaymentTerminalState": PaymentTerminalState,
+        "ProductFeeType": ProductFeeType,
+        "ProductMeteredTierPricing": ProductMeteredTierPricing,
         "RecurringIndicator": RecurringIndicator,
         "RefundState": RefundState,
         "RefundType": RefundType,
         "ResourceState": ResourceState,
         "RestAddressFormatField": RestAddressFormatField,
+        "RoleState": RoleState,
         "ShopifyAdditionalLineItemData": ShopifyAdditionalLineItemData,
         "ShopifyIntegrationPaymentAppVersion": ShopifyIntegrationPaymentAppVersion,
         "ShopifyIntegrationSubscriptionAppVersion": ShopifyIntegrationSubscriptionAppVersion,
         "ShopifyTransactionState": ShopifyTransactionState,
+        "SubscriptionChargeProcessingType": SubscriptionChargeProcessingType,
+        "SubscriptionChargeState": SubscriptionChargeState,
+        "SubscriptionChargeType": SubscriptionChargeType,
+        "SubscriptionLedgerEntryState": SubscriptionLedgerEntryState,
+        "SubscriptionPeriodBillState": SubscriptionPeriodBillState,
+        "SubscriptionProductComponentReferenceState": SubscriptionProductComponentReferenceState,
+        "SubscriptionProductState": SubscriptionProductState,
+        "SubscriptionProductVersionState": SubscriptionProductVersionState,
+        "SubscriptionState": SubscriptionState,
+        "SubscriptionSuspensionAction": SubscriptionSuspensionAction,
+        "SubscriptionSuspensionReason": SubscriptionSuspensionReason,
+        "SubscriptionSuspensionState": SubscriptionSuspensionState,
+        "SubscriptionVersionState": SubscriptionVersionState,
+        "TaxCalculation": TaxCalculation,
         "TerminalReceiptFormat": TerminalReceiptFormat,
         "TokenVersionState": TokenVersionState,
         "TokenizationMode": TokenizationMode,
@@ -325,6 +424,10 @@ class ObjectSerializer {
                 "AbstractPaymentLinkUpdate": AbstractPaymentLinkUpdate,
                 "AbstractRefundCommentActive": AbstractRefundCommentActive,
                 "AbstractSpaceUpdate": AbstractSpaceUpdate,
+                "AbstractSubscriberUpdate": AbstractSubscriberUpdate,
+                "AbstractSubscriptionAffiliateUpdate": AbstractSubscriptionAffiliateUpdate,
+                "AbstractSubscriptionMetricUpdate": AbstractSubscriptionMetricUpdate,
+                "AbstractSubscriptionProductActive": AbstractSubscriptionProductActive,
                 "AbstractTokenUpdate": AbstractTokenUpdate,
                 "AbstractTransactionCommentActive": AbstractTransactionCommentActive,
                 "AbstractTransactionInvoiceCommentActive": AbstractTransactionInvoiceCommentActive,
@@ -353,7 +456,9 @@ class ObjectSerializer {
                 "CustomerPostalAddress": CustomerPostalAddress,
                 "CustomerPostalAddressCreate": CustomerPostalAddressCreate,
                 "DatabaseTranslatedString": DatabaseTranslatedString,
+                "DatabaseTranslatedStringCreate": DatabaseTranslatedStringCreate,
                 "DatabaseTranslatedStringItem": DatabaseTranslatedStringItem,
+                "DatabaseTranslatedStringItemCreate": DatabaseTranslatedStringItemCreate,
                 "DeliveryIndicationDecisionReason": DeliveryIndicationDecisionReason,
                 "DocumentTemplate": DocumentTemplate,
                 "DocumentTemplateType": DocumentTemplateType,
@@ -404,6 +509,16 @@ class ObjectSerializer {
                 "PaymentTerminalReceiptType": PaymentTerminalReceiptType,
                 "PaymentTerminalType": PaymentTerminalType,
                 "Permission": Permission,
+                "PersistableCurrencyAmount": PersistableCurrencyAmount,
+                "PersistableCurrencyAmountUpdate": PersistableCurrencyAmountUpdate,
+                "ProductMeteredFee": ProductMeteredFee,
+                "ProductMeteredFeeUpdate": ProductMeteredFeeUpdate,
+                "ProductMeteredTierFee": ProductMeteredTierFee,
+                "ProductMeteredTierFeeUpdate": ProductMeteredTierFeeUpdate,
+                "ProductPeriodFee": ProductPeriodFee,
+                "ProductPeriodFeeUpdate": ProductPeriodFeeUpdate,
+                "ProductSetupFee": ProductSetupFee,
+                "ProductSetupFeeUpdate": ProductSetupFeeUpdate,
                 "Refund": Refund,
                 "RefundComment": RefundComment,
                 "RefundCreate": RefundCreate,
@@ -425,7 +540,44 @@ class ObjectSerializer {
                 "SpaceAddressCreate": SpaceAddressCreate,
                 "SpaceView": SpaceView,
                 "StaticValue": StaticValue,
+                "Subscriber": Subscriber,
+                "SubscriberUpdate": SubscriberUpdate,
+                "Subscription": Subscription,
+                "SubscriptionAffiliate": SubscriptionAffiliate,
+                "SubscriptionAffiliateUpdate": SubscriptionAffiliateUpdate,
+                "SubscriptionChangeRequest": SubscriptionChangeRequest,
+                "SubscriptionCharge": SubscriptionCharge,
+                "SubscriptionChargeCreate": SubscriptionChargeCreate,
+                "SubscriptionComponentConfiguration": SubscriptionComponentConfiguration,
+                "SubscriptionComponentReferenceConfiguration": SubscriptionComponentReferenceConfiguration,
+                "SubscriptionCreateRequest": SubscriptionCreateRequest,
+                "SubscriptionLedgerEntry": SubscriptionLedgerEntry,
+                "SubscriptionLedgerEntryCreate": SubscriptionLedgerEntryCreate,
+                "SubscriptionMetric": SubscriptionMetric,
+                "SubscriptionMetricType": SubscriptionMetricType,
+                "SubscriptionMetricUpdate": SubscriptionMetricUpdate,
+                "SubscriptionMetricUsageReport": SubscriptionMetricUsageReport,
+                "SubscriptionMetricUsageReportCreate": SubscriptionMetricUsageReportCreate,
+                "SubscriptionPeriodBill": SubscriptionPeriodBill,
+                "SubscriptionProduct": SubscriptionProduct,
+                "SubscriptionProductComponent": SubscriptionProductComponent,
+                "SubscriptionProductComponentGroup": SubscriptionProductComponentGroup,
+                "SubscriptionProductComponentGroupUpdate": SubscriptionProductComponentGroupUpdate,
+                "SubscriptionProductComponentReference": SubscriptionProductComponentReference,
+                "SubscriptionProductComponentUpdate": SubscriptionProductComponentUpdate,
+                "SubscriptionProductRetirement": SubscriptionProductRetirement,
+                "SubscriptionProductRetirementCreate": SubscriptionProductRetirementCreate,
+                "SubscriptionProductVersion": SubscriptionProductVersion,
+                "SubscriptionProductVersionPending": SubscriptionProductVersionPending,
+                "SubscriptionProductVersionRetirement": SubscriptionProductVersionRetirement,
+                "SubscriptionProductVersionRetirementCreate": SubscriptionProductVersionRetirementCreate,
+                "SubscriptionSuspension": SubscriptionSuspension,
+                "SubscriptionSuspensionCreate": SubscriptionSuspensionCreate,
+                "SubscriptionUpdate": SubscriptionUpdate,
+                "SubscriptionUpdateRequest": SubscriptionUpdateRequest,
+                "SubscriptionVersion": SubscriptionVersion,
                 "Tax": Tax,
+                "TaxClass": TaxClass,
                 "TaxCreate": TaxCreate,
                 "TenantDatabase": TenantDatabase,
                 "TerminalReceiptFetchRequest": TerminalReceiptFetchRequest,
@@ -477,6 +629,17 @@ class ObjectSerializer {
                 "ShopifyTransaction": ShopifyTransaction,
                 "SpaceCreate": SpaceCreate,
                 "SpaceUpdate": SpaceUpdate,
+                "SubscriberActive": SubscriberActive,
+                "SubscriberCreate": SubscriberCreate,
+                "SubscriptionAffiliateCreate": SubscriptionAffiliateCreate,
+                "SubscriptionAffiliateDeleted": SubscriptionAffiliateDeleted,
+                "SubscriptionAffiliateInactive": SubscriptionAffiliateInactive,
+                "SubscriptionMetricActive": SubscriptionMetricActive,
+                "SubscriptionMetricCreate": SubscriptionMetricCreate,
+                "SubscriptionPending": SubscriptionPending,
+                "SubscriptionProductActive": SubscriptionProductActive,
+                "SubscriptionProductCreate": SubscriptionProductCreate,
+                "SubscriptionSuspensionRunning": SubscriptionSuspensionRunning,
                 "TokenCreate": TokenCreate,
                 "TokenUpdate": TokenUpdate,
                 "TransactionCommentActive": TransactionCommentActive,
@@ -494,6 +657,7 @@ class ObjectSerializer {
                 "WebhookUrlCreate": WebhookUrlCreate,
                 "WebhookUrlUpdate": WebhookUrlUpdate,
                 "ApplicationUserCreateWithMacKey": ApplicationUserCreateWithMacKey,
+                "SubscriptionAffiliateDeleting": SubscriptionAffiliateDeleting,
     }
 
     public static findCorrectType(data: any, expectedType: string) {

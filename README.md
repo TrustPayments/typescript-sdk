@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/TrustPayments/typescript-sdk.svg?branch=master)](https://travis-ci.org/TrustPayments/typescript-sdk)
-
 # Trust Payments TypeScript Library
 
 The Trust Payments TypeScript library wraps around the Trust Payments API. This library facilitates your interaction with various services such as transactions, accounts, and subscriptions.
