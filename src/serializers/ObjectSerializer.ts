@@ -122,12 +122,16 @@ import { PaymentTerminalConfiguration } from "../models/PaymentTerminalConfigura
 import { PaymentTerminalConfigurationState } from "../models/PaymentTerminalConfigurationState";
 import { PaymentTerminalConfigurationVersion } from "../models/PaymentTerminalConfigurationVersion";
 import { PaymentTerminalConfigurationVersionState } from "../models/PaymentTerminalConfigurationVersionState";
+import { PaymentTerminalDccTransactionSum } from "../models/PaymentTerminalDccTransactionSum";
 import { PaymentTerminalLocation } from "../models/PaymentTerminalLocation";
 import { PaymentTerminalLocationState } from "../models/PaymentTerminalLocationState";
 import { PaymentTerminalLocationVersion } from "../models/PaymentTerminalLocationVersion";
 import { PaymentTerminalLocationVersionState } from "../models/PaymentTerminalLocationVersionState";
 import { PaymentTerminalReceiptType } from "../models/PaymentTerminalReceiptType";
 import { PaymentTerminalState } from "../models/PaymentTerminalState";
+import { PaymentTerminalTransactionSum } from "../models/PaymentTerminalTransactionSum";
+import { PaymentTerminalTransactionSummary } from "../models/PaymentTerminalTransactionSummary";
+import { PaymentTerminalTransactionSummaryFetchRequest } from "../models/PaymentTerminalTransactionSummaryFetchRequest";
 import { PaymentTerminalType } from "../models/PaymentTerminalType";
 import { Permission } from "../models/Permission";
 import { PersistableCurrencyAmount } from "../models/PersistableCurrencyAmount";
@@ -150,6 +154,7 @@ import { RefundState } from "../models/RefundState";
 import { RefundType } from "../models/RefundType";
 import { RenderedDocument } from "../models/RenderedDocument";
 import { RenderedTerminalReceipt } from "../models/RenderedTerminalReceipt";
+import { RenderedTerminalTransactionSummary } from "../models/RenderedTerminalTransactionSummary";
 import { ResourcePath } from "../models/ResourcePath";
 import { ResourceState } from "../models/ResourceState";
 import { RestAddressFormat } from "../models/RestAddressFormat";
@@ -249,7 +254,6 @@ import { TransactionGroupState } from "../models/TransactionGroupState";
 import { TransactionInvoiceComment } from "../models/TransactionInvoiceComment";
 import { TransactionInvoiceReplacement } from "../models/TransactionInvoiceReplacement";
 import { TransactionInvoiceState } from "../models/TransactionInvoiceState";
-import { TransactionLineItemUpdateRequest } from "../models/TransactionLineItemUpdateRequest";
 import { TransactionLineItemVersionCreate } from "../models/TransactionLineItemVersionCreate";
 import { TransactionLineItemVersionState } from "../models/TransactionLineItemVersionState";
 import { TransactionState } from "../models/TransactionState";
@@ -507,9 +511,13 @@ class ObjectSerializer {
                 "PaymentTerminalAddress": PaymentTerminalAddress,
                 "PaymentTerminalConfiguration": PaymentTerminalConfiguration,
                 "PaymentTerminalConfigurationVersion": PaymentTerminalConfigurationVersion,
+                "PaymentTerminalDccTransactionSum": PaymentTerminalDccTransactionSum,
                 "PaymentTerminalLocation": PaymentTerminalLocation,
                 "PaymentTerminalLocationVersion": PaymentTerminalLocationVersion,
                 "PaymentTerminalReceiptType": PaymentTerminalReceiptType,
+                "PaymentTerminalTransactionSum": PaymentTerminalTransactionSum,
+                "PaymentTerminalTransactionSummary": PaymentTerminalTransactionSummary,
+                "PaymentTerminalTransactionSummaryFetchRequest": PaymentTerminalTransactionSummaryFetchRequest,
                 "PaymentTerminalType": PaymentTerminalType,
                 "Permission": Permission,
                 "PersistableCurrencyAmount": PersistableCurrencyAmount,
@@ -527,6 +535,7 @@ class ObjectSerializer {
                 "RefundCreate": RefundCreate,
                 "RenderedDocument": RenderedDocument,
                 "RenderedTerminalReceipt": RenderedTerminalReceipt,
+                "RenderedTerminalTransactionSummary": RenderedTerminalTransactionSummary,
                 "ResourcePath": ResourcePath,
                 "RestAddressFormat": RestAddressFormat,
                 "RestCountry": RestCountry,
@@ -596,7 +605,6 @@ class ObjectSerializer {
                 "TransactionGroup": TransactionGroup,
                 "TransactionInvoiceComment": TransactionInvoiceComment,
                 "TransactionInvoiceReplacement": TransactionInvoiceReplacement,
-                "TransactionLineItemUpdateRequest": TransactionLineItemUpdateRequest,
                 "TransactionLineItemVersionCreate": TransactionLineItemVersionCreate,
                 "TwoFactorAuthenticationType": TwoFactorAuthenticationType,
                 "User": User,

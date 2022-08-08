@@ -121,12 +121,16 @@ import { PaymentTerminalConfiguration as PaymentTerminalConfigurationModelImport
 import { PaymentTerminalConfigurationState as PaymentTerminalConfigurationStateModelImport } from "./src/models/PaymentTerminalConfigurationState";
 import { PaymentTerminalConfigurationVersion as PaymentTerminalConfigurationVersionModelImport } from "./src/models/PaymentTerminalConfigurationVersion";
 import { PaymentTerminalConfigurationVersionState as PaymentTerminalConfigurationVersionStateModelImport } from "./src/models/PaymentTerminalConfigurationVersionState";
+import { PaymentTerminalDccTransactionSum as PaymentTerminalDccTransactionSumModelImport } from "./src/models/PaymentTerminalDccTransactionSum";
 import { PaymentTerminalLocation as PaymentTerminalLocationModelImport } from "./src/models/PaymentTerminalLocation";
 import { PaymentTerminalLocationState as PaymentTerminalLocationStateModelImport } from "./src/models/PaymentTerminalLocationState";
 import { PaymentTerminalLocationVersion as PaymentTerminalLocationVersionModelImport } from "./src/models/PaymentTerminalLocationVersion";
 import { PaymentTerminalLocationVersionState as PaymentTerminalLocationVersionStateModelImport } from "./src/models/PaymentTerminalLocationVersionState";
 import { PaymentTerminalReceiptType as PaymentTerminalReceiptTypeModelImport } from "./src/models/PaymentTerminalReceiptType";
 import { PaymentTerminalState as PaymentTerminalStateModelImport } from "./src/models/PaymentTerminalState";
+import { PaymentTerminalTransactionSum as PaymentTerminalTransactionSumModelImport } from "./src/models/PaymentTerminalTransactionSum";
+import { PaymentTerminalTransactionSummary as PaymentTerminalTransactionSummaryModelImport } from "./src/models/PaymentTerminalTransactionSummary";
+import { PaymentTerminalTransactionSummaryFetchRequest as PaymentTerminalTransactionSummaryFetchRequestModelImport } from "./src/models/PaymentTerminalTransactionSummaryFetchRequest";
 import { PaymentTerminalType as PaymentTerminalTypeModelImport } from "./src/models/PaymentTerminalType";
 import { Permission as PermissionModelImport } from "./src/models/Permission";
 import { PersistableCurrencyAmount as PersistableCurrencyAmountModelImport } from "./src/models/PersistableCurrencyAmount";
@@ -149,6 +153,7 @@ import { RefundState as RefundStateModelImport } from "./src/models/RefundState"
 import { RefundType as RefundTypeModelImport } from "./src/models/RefundType";
 import { RenderedDocument as RenderedDocumentModelImport } from "./src/models/RenderedDocument";
 import { RenderedTerminalReceipt as RenderedTerminalReceiptModelImport } from "./src/models/RenderedTerminalReceipt";
+import { RenderedTerminalTransactionSummary as RenderedTerminalTransactionSummaryModelImport } from "./src/models/RenderedTerminalTransactionSummary";
 import { ResourcePath as ResourcePathModelImport } from "./src/models/ResourcePath";
 import { ResourceState as ResourceStateModelImport } from "./src/models/ResourceState";
 import { RestAddressFormat as RestAddressFormatModelImport } from "./src/models/RestAddressFormat";
@@ -248,7 +253,6 @@ import { TransactionGroupState as TransactionGroupStateModelImport } from "./src
 import { TransactionInvoiceComment as TransactionInvoiceCommentModelImport } from "./src/models/TransactionInvoiceComment";
 import { TransactionInvoiceReplacement as TransactionInvoiceReplacementModelImport } from "./src/models/TransactionInvoiceReplacement";
 import { TransactionInvoiceState as TransactionInvoiceStateModelImport } from "./src/models/TransactionInvoiceState";
-import { TransactionLineItemUpdateRequest as TransactionLineItemUpdateRequestModelImport } from "./src/models/TransactionLineItemUpdateRequest";
 import { TransactionLineItemVersionCreate as TransactionLineItemVersionCreateModelImport } from "./src/models/TransactionLineItemVersionCreate";
 import { TransactionLineItemVersionState as TransactionLineItemVersionStateModelImport } from "./src/models/TransactionLineItemVersionState";
 import { TransactionState as TransactionStateModelImport } from "./src/models/TransactionState";
@@ -354,6 +358,7 @@ import { PaymentProcessorConfigurationService as PaymentProcessorConfigurationSe
 import { PaymentProcessorService as PaymentProcessorServiceApiImport } from "./src/api/PaymentProcessorService";
 import { PaymentTerminalService as PaymentTerminalServiceApiImport } from "./src/api/PaymentTerminalService";
 import { PaymentTerminalTillService as PaymentTerminalTillServiceApiImport } from "./src/api/PaymentTerminalTillService";
+import { PaymentTerminalTransactionSummaryService as PaymentTerminalTransactionSummaryServiceApiImport } from "./src/api/PaymentTerminalTransactionSummaryService";
 import { PermissionService as PermissionServiceApiImport } from "./src/api/PermissionService";
 import { RefundCommentService as RefundCommentServiceApiImport } from "./src/api/RefundCommentService";
 import { RefundService as RefundServiceApiImport } from "./src/api/RefundService";
@@ -648,6 +653,8 @@ export namespace TrustPayments {
         export const PaymentTerminalConfigurationVersion = PaymentTerminalConfigurationVersionModelImport;
         export type PaymentTerminalConfigurationVersionState = PaymentTerminalConfigurationVersionStateModelImport;
         export const PaymentTerminalConfigurationVersionState = PaymentTerminalConfigurationVersionStateModelImport;
+        export type PaymentTerminalDccTransactionSum = PaymentTerminalDccTransactionSumModelImport;
+        export const PaymentTerminalDccTransactionSum = PaymentTerminalDccTransactionSumModelImport;
         export type PaymentTerminalLocation = PaymentTerminalLocationModelImport;
         export const PaymentTerminalLocation = PaymentTerminalLocationModelImport;
         export type PaymentTerminalLocationState = PaymentTerminalLocationStateModelImport;
@@ -660,6 +667,12 @@ export namespace TrustPayments {
         export const PaymentTerminalReceiptType = PaymentTerminalReceiptTypeModelImport;
         export type PaymentTerminalState = PaymentTerminalStateModelImport;
         export const PaymentTerminalState = PaymentTerminalStateModelImport;
+        export type PaymentTerminalTransactionSum = PaymentTerminalTransactionSumModelImport;
+        export const PaymentTerminalTransactionSum = PaymentTerminalTransactionSumModelImport;
+        export type PaymentTerminalTransactionSummary = PaymentTerminalTransactionSummaryModelImport;
+        export const PaymentTerminalTransactionSummary = PaymentTerminalTransactionSummaryModelImport;
+        export type PaymentTerminalTransactionSummaryFetchRequest = PaymentTerminalTransactionSummaryFetchRequestModelImport;
+        export const PaymentTerminalTransactionSummaryFetchRequest = PaymentTerminalTransactionSummaryFetchRequestModelImport;
         export type PaymentTerminalType = PaymentTerminalTypeModelImport;
         export const PaymentTerminalType = PaymentTerminalTypeModelImport;
         export type Permission = PermissionModelImport;
@@ -704,6 +717,8 @@ export namespace TrustPayments {
         export const RenderedDocument = RenderedDocumentModelImport;
         export type RenderedTerminalReceipt = RenderedTerminalReceiptModelImport;
         export const RenderedTerminalReceipt = RenderedTerminalReceiptModelImport;
+        export type RenderedTerminalTransactionSummary = RenderedTerminalTransactionSummaryModelImport;
+        export const RenderedTerminalTransactionSummary = RenderedTerminalTransactionSummaryModelImport;
         export type ResourcePath = ResourcePathModelImport;
         export const ResourcePath = ResourcePathModelImport;
         export type ResourceState = ResourceStateModelImport;
@@ -902,8 +917,6 @@ export namespace TrustPayments {
         export const TransactionInvoiceReplacement = TransactionInvoiceReplacementModelImport;
         export type TransactionInvoiceState = TransactionInvoiceStateModelImport;
         export const TransactionInvoiceState = TransactionInvoiceStateModelImport;
-        export type TransactionLineItemUpdateRequest = TransactionLineItemUpdateRequestModelImport;
-        export const TransactionLineItemUpdateRequest = TransactionLineItemUpdateRequestModelImport;
         export type TransactionLineItemVersionCreate = TransactionLineItemVersionCreateModelImport;
         export const TransactionLineItemVersionCreate = TransactionLineItemVersionCreateModelImport;
         export type TransactionLineItemVersionState = TransactionLineItemVersionStateModelImport;
@@ -1115,6 +1128,8 @@ export namespace TrustPayments {
         export const PaymentTerminalService = PaymentTerminalServiceApiImport;
         export type PaymentTerminalTillService = PaymentTerminalTillServiceApiImport;
         export const PaymentTerminalTillService = PaymentTerminalTillServiceApiImport;
+        export type PaymentTerminalTransactionSummaryService = PaymentTerminalTransactionSummaryServiceApiImport;
+        export const PaymentTerminalTransactionSummaryService = PaymentTerminalTransactionSummaryServiceApiImport;
         export type PermissionService = PermissionServiceApiImport;
         export const PermissionService = PermissionServiceApiImport;
         export type RefundCommentService = RefundCommentServiceApiImport;
