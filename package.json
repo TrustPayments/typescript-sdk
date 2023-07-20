@@ -1,7 +1,7 @@
 {
     "name": "trustpayments",
     "title": "Trust Payments",
-    "version": "3.2.1",
+    "version": "4.0.0",
     "description": "TypeScript/JavaScript client for Trust Payments",
     "homepage": "http://github.com/TrustPayments/typescript-sdk",
     "repository": {

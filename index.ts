@@ -55,10 +55,6 @@ import { CustomerPostalAddress as CustomerPostalAddressModelImport } from "./src
 import { CustomerPostalAddressCreate as CustomerPostalAddressCreateModelImport } from "./src/models/CustomerPostalAddressCreate";
 import { CustomersPresence as CustomersPresenceModelImport } from "./src/models/CustomersPresence";
 import { DataCollectionType as DataCollectionTypeModelImport } from "./src/models/DataCollectionType";
-import { DatabaseTranslatedString as DatabaseTranslatedStringModelImport } from "./src/models/DatabaseTranslatedString";
-import { DatabaseTranslatedStringCreate as DatabaseTranslatedStringCreateModelImport } from "./src/models/DatabaseTranslatedStringCreate";
-import { DatabaseTranslatedStringItem as DatabaseTranslatedStringItemModelImport } from "./src/models/DatabaseTranslatedStringItem";
-import { DatabaseTranslatedStringItemCreate as DatabaseTranslatedStringItemCreateModelImport } from "./src/models/DatabaseTranslatedStringItemCreate";
 import { DeliveryIndicationDecisionReason as DeliveryIndicationDecisionReasonModelImport } from "./src/models/DeliveryIndicationDecisionReason";
 import { DeliveryIndicationState as DeliveryIndicationStateModelImport } from "./src/models/DeliveryIndicationState";
 import { DocumentTemplate as DocumentTemplateModelImport } from "./src/models/DocumentTemplate";
@@ -522,14 +518,6 @@ export namespace TrustPayments {
         export const CustomersPresence = CustomersPresenceModelImport;
         export type DataCollectionType = DataCollectionTypeModelImport;
         export const DataCollectionType = DataCollectionTypeModelImport;
-        export type DatabaseTranslatedString = DatabaseTranslatedStringModelImport;
-        export const DatabaseTranslatedString = DatabaseTranslatedStringModelImport;
-        export type DatabaseTranslatedStringCreate = DatabaseTranslatedStringCreateModelImport;
-        export const DatabaseTranslatedStringCreate = DatabaseTranslatedStringCreateModelImport;
-        export type DatabaseTranslatedStringItem = DatabaseTranslatedStringItemModelImport;
-        export const DatabaseTranslatedStringItem = DatabaseTranslatedStringItemModelImport;
-        export type DatabaseTranslatedStringItemCreate = DatabaseTranslatedStringItemCreateModelImport;
-        export const DatabaseTranslatedStringItemCreate = DatabaseTranslatedStringItemCreateModelImport;
         export type DeliveryIndicationDecisionReason = DeliveryIndicationDecisionReasonModelImport;
         export const DeliveryIndicationDecisionReason = DeliveryIndicationDecisionReasonModelImport;
         export type DeliveryIndicationState = DeliveryIndicationStateModelImport;

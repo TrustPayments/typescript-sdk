@@ -56,10 +56,6 @@ import { CustomerPostalAddress } from "../models/CustomerPostalAddress";
 import { CustomerPostalAddressCreate } from "../models/CustomerPostalAddressCreate";
 import { CustomersPresence } from "../models/CustomersPresence";
 import { DataCollectionType } from "../models/DataCollectionType";
-import { DatabaseTranslatedString } from "../models/DatabaseTranslatedString";
-import { DatabaseTranslatedStringCreate } from "../models/DatabaseTranslatedStringCreate";
-import { DatabaseTranslatedStringItem } from "../models/DatabaseTranslatedStringItem";
-import { DatabaseTranslatedStringItemCreate } from "../models/DatabaseTranslatedStringItemCreate";
 import { DeliveryIndicationDecisionReason } from "../models/DeliveryIndicationDecisionReason";
 import { DeliveryIndicationState } from "../models/DeliveryIndicationState";
 import { DocumentTemplate } from "../models/DocumentTemplate";
@@ -464,10 +460,6 @@ class ObjectSerializer {
                 "CustomerComment": CustomerComment,
                 "CustomerPostalAddress": CustomerPostalAddress,
                 "CustomerPostalAddressCreate": CustomerPostalAddressCreate,
-                "DatabaseTranslatedString": DatabaseTranslatedString,
-                "DatabaseTranslatedStringCreate": DatabaseTranslatedStringCreate,
-                "DatabaseTranslatedStringItem": DatabaseTranslatedStringItem,
-                "DatabaseTranslatedStringItemCreate": DatabaseTranslatedStringItemCreate,
                 "DeliveryIndicationDecisionReason": DeliveryIndicationDecisionReason,
                 "DocumentTemplate": DocumentTemplate,
                 "DocumentTemplateType": DocumentTemplateType,
